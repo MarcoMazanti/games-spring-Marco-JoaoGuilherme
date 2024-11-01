@@ -12,7 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@table(name = "categorias")
+@Table(name = "categorias")
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +20,13 @@ public class Categoria {
     @Column(unique = true, nullable = false)
     private String nome;
 
-    @OneToMany (mappedBy = "categoria")
-    private Set<logo> jogos = new HashSet<>();
+    @OneToMany(mappedBy = "categoria")
+    private Set<Jogo> jogos = new HashSet<>();
 
-    public long getid() {
+    public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -39,10 +40,10 @@ public class Categoria {
     }
 
     public Set<Jogo> getJogos() {
-    return jogos;
+        return jogos;
     }
 
-    public void setJogos (Set<Jogo> jogos) {
+    public void setJogos(Set<Jogo> jogos) {
         this.jogos = jogos;
     }
 }

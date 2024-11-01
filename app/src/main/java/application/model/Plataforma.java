@@ -5,7 +5,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Generatedvalue;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -34,16 +34,16 @@ public class Plataforma {
     public String getNome() {
         return nome;
     }
-
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+    
     public Set<Jogo> getJogos() {
         return jogos;
     }
-
+    
     public void setJogos(Set<Jogo> jogos) {
         this.jogos = jogos;
-    }
+    }    
 }

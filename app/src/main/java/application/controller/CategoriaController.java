@@ -19,17 +19,17 @@ public class CategoriaController {
     private CategoriaRepository categoriaRepo;
 
     @RequestMapping("/list")
-    public string list(Model ui) {
-        ui.addAttribute("categorias", categotiaRepo.findAll());
+    public String list(Model ui) {
+        ui.addAttribute("categorias", categoriaRepo.findAll());
         return "categoria/list";
     }
-
+    
     @RequestMapping("/insert")
     public String insert() {
         return "categoria/insert";
     }
 
-    @RequestMapping(value ="/insert", method = RequestMethod.POST)
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public String insert(@RequestParam("nome") String nome) {
         Categoria categoria = new Categoria();
         categoria.setNome(nome);
@@ -42,9 +42,8 @@ public class CategoriaController {
     @RequestMapping("/update")
     public String update(
         @RequestParam("id") long id,
-        Model ui
-    ) {
-
+        Model ui) {
+        
         Optional<Categoria> categoria = categoriaRepo.findById(id);
 
         if(categoria.isPresent()) {
@@ -54,16 +53,15 @@ public class CategoriaController {
 
         return "redirect:/categoria/list";
     }
-
-    @RequestMapping(value ="/update", method = RequestMethod.POST)
+    
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(
         @RequestParam("id") long id,
-        @RequestParam("nome") String nome
-    ) {
-
+        @RequestParam("nome") String nome ) {
+        
         Optional<Categoria> categoria = categoriaRepo.findById(id);
 
-        if(categoria.isPresent()) {
+        if (categoria.isPresent()) {
             categoria.get().setNome(nome);
 
             categoriaRepo.save(categoria.get());
@@ -75,8 +73,7 @@ public class CategoriaController {
     @RequestMapping("/delete")
     public String delete(
         @RequestParam("id") long id,
-        Model ui
-    ) {
+        Model ui) {
 
         Optional<Categoria> categoria = categoriaRepo.findById(id);
 
@@ -88,10 +85,10 @@ public class CategoriaController {
         return "redirect:/categoria/list";
     }
 
-    @RequestMapping(value ="/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(@RequestParam("id") long id) {
         categoriaRepo.deleteById(id);
 
         return "redirect:/categoria/list";
-    }
+    }    
 }

@@ -1,12 +1,11 @@
 package application.model;
 
-import java.security.Identity;
-import java.util.Hashset;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence. Generatedvalue;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -32,8 +31,7 @@ public class Jogo {
     @JoinTable(
         name = "jogos_possuem_plataformas",
         joinColumns = @JoinColumn(name = "id_jogos"),
-        inverseJoinColumns = @JoinColumn(name = "id_plataformas")
-    )
+        inverseJoinColumns = @JoinColumn(name = "id_plataformas"))
     private Set<Plataforma> plataformas = new HashSet<>();
 
     public long getId() {

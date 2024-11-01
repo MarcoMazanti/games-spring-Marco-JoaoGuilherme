@@ -7,7 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="contaienr">
+        <div class="container">
             <h1>Editar Categoria</h1>
             <form action="/categoria/update" method="post">
                 <input type="hidden" name="id" value="${categoria.id}" />
